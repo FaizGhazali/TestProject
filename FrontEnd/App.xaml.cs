@@ -1,6 +1,10 @@
-﻿using System.Configuration;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
 using System.Data;
+using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FrontEnd
 {
@@ -9,6 +13,35 @@ namespace FrontEnd
     /// </summary>
     public partial class App : Application
     {
+        public static IServiceProvider? ServiceProvider { get; private set; }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var services = new ServiceCollection();
+
+            ConfigureServices(services);
+            ServiceProvider = services.BuildServiceProvider();
+
+            base.OnStartup(e);
+            var mainPage = ServiceProvider.GetRequiredService<MainWindow>();
+            mainPage.Show();
+
+        }
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //Register View
+            services.AddSingleton<MainWindow>();
+
+
+            //Register Service
+
+        }
+        public App()
+        {
+            Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+        }
+
+        
     }
 
 }
