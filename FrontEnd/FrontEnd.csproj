@@ -9,7 +9,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Media\Icons\Copy.png" />
+    <None Remove="Media\Icons\Cut.png" />
+    <None Remove="Media\Icons\NewFolder.png" />
+    <None Remove="Media\Icons\OpenFolder.png" />
+    <None Remove="Media\Icons\Paste.png" />
+    <None Remove="Media\Icons\Save.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ActiproSoftware.Controls.WPF.Grids" Version="24.1.5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Media\Icons\OpenFolder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Media\Icons\Copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Media\Icons\Cut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Media\Icons\NewFolder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Media\Icons\Paste.png" />
+    <Resource Include="Media\Icons\Save.png" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
@@ -39,6 +40,11 @@ namespace FrontEnd
         public App()
         {
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+
+            
+            //var serviceCollection = new ServiceCollection();
+            //ConfigureServices(serviceCollection);
+            //ServiceProvider = serviceCollection.BuildServiceProvider();
         }
 
         
