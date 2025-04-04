@@ -56,5 +56,13 @@
 
             </ToolBarTray>
         </DockPanel>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+        </Grid>
     </Grid>
 </Window>

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FrontEnd.MVVM.Services;
+using FrontEnd.MVVM.ViewModel;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Configuration;
 using System.Data;
@@ -30,21 +32,26 @@ namespace FrontEnd
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            //Register ViewModels
+            services.AddSingleton<MainViewModel>();
+
             //Register View
             services.AddSingleton<MainWindow>();
 
-
             //Register Service
+            services.AddTransient<IMyService, FaizService>();
+            
+            
 
         }
         public App()
         {
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
-            
-            //var serviceCollection = new ServiceCollection();
-            //ConfigureServices(serviceCollection);
-            //ServiceProvider = serviceCollection.BuildServiceProvider();
+
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+            ServiceProvider = serviceCollection.BuildServiceProvider();
         }
 
         

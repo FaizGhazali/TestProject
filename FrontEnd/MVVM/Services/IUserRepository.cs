@@ -1,0 +1,18 @@
+﻿using FrontEnd.MVVM.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FrontEnd.MVVM.Services
+{
+    public interface IUserRepository
+    {
+        User GetUserById(int id);
+        List<User> GetAllUsers();
+        void AddUser(User user);
+        void UpdateUser(User user);
+        void DeleteUser(int id);
+    }
+}
